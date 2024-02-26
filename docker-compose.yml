@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  nats:
+    container_name: nats
+    image: nats:2.6.0
+    expose:
+      - "4222"
+    ports:
+      - "4222:4222" # service
+      # - "6222:6222" # cluster
+      - "8222:8222" # http monitor
+    # command: -js -m 8222
+    # https://docs.nats.io/running-a-nats-service/configuration/logging
+    command: -js -m 8222 -V
+    # logging:
+    #   driver: none
+    # entrypoint: /bin/sh -c
+    # command: >
+    #   nats -js
